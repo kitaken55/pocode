@@ -77,7 +77,7 @@ const sendGETData02 = (url = ``, data = {}, _method = "GET") => {
     .then(response => response.json()) // レスポンスの JSON を解析
     .then(json =>{
       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
-      json.forEach( element => {
+      json.forEach(element => {
         timeline += `<p>${element.text}</p>`
       });
       document.getElementById('myposts_area').innerHTML = timeline;
@@ -97,10 +97,27 @@ const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
   })
   .then(response => response.json())
   .then(json => {
-    localStorage.token = json.token;
-    localStorage.id = json.id;
-    localStorage.name = json.name;
-    localStorage.bio = json.bio;
+      localStorage.token = json.token;
+      localStorage.id = json.id;
+      localStorage.name = json.name;
+      localStorage.bio = json.bio;
+    window.location.href = './mypage.html';
+  })
+}
+
+//投稿用
+const sendDataPosts = (url = ``, data = {}, _method = "POST") => {
+  // 既定のオプションには * が付いています
+  return fetch(url, {
+    method: _method, // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    },
+    body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
+  })
+  .then(response => response.json())
+  .then(json => {
     window.location.href = './mypage.html';
   })
 }

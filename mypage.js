@@ -16,7 +16,7 @@ const onButtonClickNewPost = () => {
   console.log(urlNewPost, data)
 
   // 登録APIを呼び出す
-  sendDataWithToken(urlNewPost, data).then(result => {
+  sendDataPosts(urlNewPost, data).then(result => {
 
     console.log(result);
   });
@@ -92,7 +92,7 @@ const follow = () => {
   });
 }
 
-// フォロワー
+// フォロワー表示
 const myFollow = () => {
 
   const number = document.getElementById('myfollow').value;

@@ -28,25 +28,25 @@ const urlSignIn = 'https://teachapi.herokuapp.com/sign_in';
 
 
 // ----------ここから新規投稿
-const onButtonClickNewPost = () => {
-  // [新規投稿]
-  const urlNewPost = 'https://teachapi.herokuapp.com/posts';
+// const onButtonClickNewPost = () => {
+//   // [新規投稿]
+//   const urlNewPost = 'https://teachapi.herokuapp.com/posts';
 
-  // HTMLから値を取得する
-  const text = document.getElementById('newPost').value;
+//   // HTMLから値を取得する
+//   const text = document.getElementById('newPost').value;
 
-  //ばーちーさんのスラックより
-  const data = {
-    "post_params":{
-      "text": text
-      }
-  }
+//   //ばーちーさんのスラックより
+//   const data = {
+//     "post_params":{
+//       "text": text
+//       }
+//   }
 
-  console.log(urlNewPost, data)
+//   console.log(urlNewPost, data)
 
-  // 登録APIを呼び出す
-  sendDataWithToken(urlNewPost, data)
-}
+//   // 登録APIを呼び出す
+//   sendDataWithToken(urlNewPost, data)
+// }
 
  //----------自分の投稿一覧を表示
 const showTimeline = () =>{
